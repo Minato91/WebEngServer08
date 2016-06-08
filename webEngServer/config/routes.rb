@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
-  resources :users
+  #resources :users
+
+  scope '/:login' do
+    get '/' => 'users#anmelden'
+    post '/' => 'users#create'
+    scope '/pubkey' do
+      get '/' => 'users#pubkey'
+    end
+    scope '/messsage' do
+    end
+    end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
